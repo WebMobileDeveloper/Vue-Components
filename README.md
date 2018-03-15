@@ -18,4 +18,12 @@ npm run build
 npm run build --report
 ```
 
+
+## Components
+  + src/components
+   1. register form component   :    register_form dir
+   2. login form component   :    LoginForm.vue
+   3. ForgotPassword form component   :    ForgotPassword.vue 
+
+
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
