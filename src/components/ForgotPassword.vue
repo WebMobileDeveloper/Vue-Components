@@ -1,22 +1,23 @@
 
+<!--suppress CssOverwrittenProperties -->
 <template>
-  <div class="component-body">    
-    <form class="submit-form" @submit="checkForm" method="post" :action="url">  
+  <div class="component-body">
+    <form class="submit-form" @submit="checkForm" method="post" :action="url">
       <h2 class="form-header">
         Forgot Password
-      </h2>    
+      </h2>
       <div>
         <div class="list-body">
-          <p class="form-description">Enter your username or email address below. You will receive an email on your registerd email address with your new password.</p>
+          <p class="form-description">Enter your email address below. You will receive an email on your registerd email address with instructions to generate your new password.</p>
         </div>
         <div class="form-section">
-          <div class="left-section">User Name: <span class="color-red">*</span></div>
+          <div class="left-section">Email Address: <span class="color-red">*</span></div>
           <div class="right-section">
           <!-- Email Address -->
             <div class="list-body">
-              <input type="text" :class="{isRequired: error.user_name, passed: passed.user_name}" name="user_name" v-model="user_name"> 
-            </div>                 
-          <!-- Submit button -->          
+              <input type="text" :class="{isRequired: error.user_name, passed: passed.user_name}" name="user_name" v-model="user_name">
+            </div>
+          <!-- Submit button -->
             <div class="list-body">
               <button type="submit" name="submit_button">E-mail new password</button>
             </div>
@@ -43,7 +44,7 @@ export default {
   },
   watch: {
     user_name: function(val) {
-      if (val == "") {
+      if (val === "") {
         this.error.user_name = true;
         this.passed.user_name = false;
       } else {
@@ -72,24 +73,8 @@ export default {
 </script>
 
 <style scoped>
-.submit-form {
-  max-width: 500px;
-  margin: 0px auto;
-  padding: 20px 0px;
-  background-color: rgb(240, 240, 240);
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.534);
-  text-align: left;
-  color: black;
-}
-.form-header,
-.form-description {
-  text-align: center;
-  margin: 10px 0px;
-}
 .form-section {
-  /* -webkit-margin-end: 20px;
-  -webkit-margin-start: 20px; */
-  padding: 10px 0px;
+  padding: 10px 0;
   display: table;
   width: 100%;
 }
@@ -102,11 +87,9 @@ export default {
     padding: 10px;
 }
 .right-section {
-  padding: 0px 20px;
+  padding: 0 20px;
 }
-.color-red {
-  color: red;
-}
+
 input {
   padding: 2px 20px 2px 10px;
   -webkit-padding: 2px 20px 2px 10px;
@@ -130,11 +113,9 @@ input {
 }
 
 input:focus {
-  box-shadow: 0px 0px 5px #599df7;
-  -webkit-box-shadow: 0px 0px 5px #599df7;
-  border-width: 2px;
-  border-color: transparent;
-  border-style: inset;
+  box-shadow: 0 0 5px #599df7;
+  -webkit-box-shadow: 0 0 5px #599df7;
+  border: 2px inset transparent;
   outline: 0;
 }
 input.isRequired {
@@ -147,9 +128,5 @@ input.passed {
 }
 input.isRequired {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23d9534f' viewBox='-2 -2 7 7'%3E%3Cpath stroke='%23d9534f' d='M0 0l3 3m0-3L0 3'/%3E%3Ccircle r='.5'/%3E%3Ccircle cx='3' r='.5'/%3E%3Ccircle cy='3' r='.5'/%3E%3Ccircle cx='3' cy='3' r='.5'/%3E%3C/svg%3E");
-}
-button {
-  margin-top: 20px;
-  padding: 5px;
 }
 </style>
