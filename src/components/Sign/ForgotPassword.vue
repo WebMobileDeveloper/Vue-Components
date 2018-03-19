@@ -57,14 +57,15 @@ export default {
   mounted() {},
   methods: {
     checkForm: function(e) {
-      console.log(this.countries);
       this.form_error = false;
       if (!this.passed.user_name) {
         this.error.user_name = true;
         this.form_error = true;
       }
       if (!this.form_error) {
-        return true;
+        e.preventDefault();
+        this.$router.push("/");
+        return false;
       }
       e.preventDefault();
     }
@@ -72,22 +73,37 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.submit-form {
+  padding: 20px 0;
+  background-color: rgb(240, 240, 240);
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.534);
+  text-align: left;
+  color: black;
+}
+.form-header,
+.form-description {
+  text-align: left;
+  margin: 10px 20px;
+}
 .form-section {
   padding: 10px 0;
   display: table;
   width: 100%;
 }
-.form-section>div{
+.form-section > div {
   display: table-cell;
 }
 .left-section {
-    width:30%;
-    text-align: right;
-    padding: 10px;
+  width: 30%;
+  text-align: right;
+  padding: 10px;
 }
 .right-section {
   padding: 0 20px;
+}
+.list-body {
+  margin: 20px 0px;
 }
 
 input {
@@ -98,7 +114,7 @@ input {
   border-radius: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;
-  border: 1px solid #00000057;
+  border: 1px solid rgba(0, 0, 0, 0.57);
   background-repeat: no-repeat;
   background-position: center right;
   -webkit-background-size: 1.125rem 1.125rem;
@@ -121,12 +137,16 @@ input:focus {
 input.isRequired {
   border: 1px solid red;
   /* box-shadow: 0px 0px 5px red;
-  -webkit-box-shadow: 0px 0px 5px red; */
+-webkit-box-shadow: 0px 0px 5px red; */
 }
 input.passed {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%235cb85c' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3E%3C/svg%3E");
 }
 input.isRequired {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23d9534f' viewBox='-2 -2 7 7'%3E%3Cpath stroke='%23d9534f' d='M0 0l3 3m0-3L0 3'/%3E%3Ccircle r='.5'/%3E%3Ccircle cx='3' r='.5'/%3E%3Ccircle cy='3' r='.5'/%3E%3Ccircle cx='3' cy='3' r='.5'/%3E%3C/svg%3E");
+}
+button {
+  padding: 5px 7px;
+  font-size: 1.2em;
 }
 </style>

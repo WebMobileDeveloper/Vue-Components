@@ -1,11 +1,55 @@
+<template>
+  <div id="sign" class="row vertical-align sign-page">
+    <div class="col col-lg-6 col-sm-12">
+      <RegisterForm url=""/>
+    </div>    
+    <div class="col col-lg-6 col-sm-12">
+      <LoginForm loginUrl="" forgotUrl=""/>
+    </div>
+  </div>
+</template>
+<script>
+import RegisterForm from "../components/Sign/register_form";
+import LoginForm from "../components/Sign/LoginForm";
+
+export default {
+  name: "Sign",
+  components: {
+    RegisterForm,
+    LoginForm
+  }
+};
+</script>
+<style lang="scss" scoped>
+.container {
+  height: 100%;
+  // color: rebeccapurple;
+}
+.sign-page {
+  min-height: 100vh;
+}
+@media (min-width: 1200px) {
+  .vertical-align {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 100%;
+  }
+}
+@media (max-width: 1200px) {
+  .submit-form {
+    margin-bottom: 50px;
+  }
+}
 .submit-form {
-  max-width: 500px;
-  margin: 0 auto;
   padding: 20px 0;
   background-color: rgb(240, 240, 240);
   box-shadow: 2px 2px rgba(0, 0, 0, 0.534);
   text-align: left;
-  color:black;
+  color: black;
 }
 .form-header,
 .form-description {
@@ -34,10 +78,10 @@ li input {
   border-radius: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;
-  border: 1px solid #00000057;
+  border: 1px solid rgba(0, 0, 0, 0.57);
   background-repeat: no-repeat;
   background-position: center right;
-  -webkit-background-size: 1.125rem 1.125rem;
+  -webkit-backgrounds-size: 1.125rem 1.125rem;
   background-size: 1.125rem 1.125rem;
 
   -webkit-box-sizing: border-box;
@@ -70,6 +114,9 @@ li select {
 }
 button {
   margin-top: 20px;
-  padding: 5px;
-  font-size: 1.1rem;
+  padding: 5px 7px;
+  font-size: 1.2em;
 }
+</style>
+
+
